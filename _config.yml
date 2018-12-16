@@ -1,3 +1,4 @@
 theme: jekyll-theme-hacker
 layout: post
 title: Reverse Engineering Blog
+permalink: /Blog/:year/:month/:day/:title
