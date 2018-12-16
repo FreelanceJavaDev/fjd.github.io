@@ -21,10 +21,12 @@ However there is one function that shows up 135 times in the code.
 
 
 Doesn’t seem like it does much, but the magical number eax is set to.  That just so happens to be 232-1 or U32MAX  but this can be shortened in C or C++ to:
-`unsigned int result_to_arg_4(int *ret,  int *arg_4) { `
-`	arg_4 =  ret;`
-`	return UINT_MAX;`
-`}`
+<code>
+unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
+	arg_4 =  ret;
+	return UINT_MAX;
+}
+</code>
 
 
 Here’s a little gem from the code:
@@ -33,7 +35,4 @@ Here’s a little gem from the code:
 Now for the fun part seeing the GeoMod Engine in action.  
 The developers included a special level called Glasshouse.  This is a sandbox level, no enemies, unlimited ammo for the rocket launcher, explosives, and assault rifle.  Though only the first two are good for really modifying geometry.  The assault rifle just breaks glass.  Speaking of which, there is a glass house in this room, but little else.  Time to play with the GeoMod engine: 
 
-<video width="420" height="315">
-<src="https://www.youtube.com/watch?v=1XHW4CPKL6Q">
-</video>
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/1XHW4CPKL6Q/0.jpg)](https://www.youtube.com/watch?v=1XHW4CPKL6Q)
