@@ -21,12 +21,11 @@ However there is one function that shows up 135 times in the code.
 
 
 Doesn’t seem like it does much, but the magical number eax is set to.  That just so happens to be 232-1 or U32MAX  but this can be shortened in C or C++ to:
-<code>
-unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
+
+`unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
 	arg_4 =  ret;
 	return UINT_MAX;
-}
-</code>
+}`
 
 
 Here’s a little gem from the code:
