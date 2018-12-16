@@ -11,21 +11,20 @@ I’ll be reverse engineering Red Faction. First I’m looking in the actual gam
 What I have found so far is that Red Faction is written in C++.  From the release date, it would have been written using C++99 standard.  The reason I know this is from syntax comments and libraries only available in C++. There are also references to .cpp files.  As a result I have to reverse the process by hand because most decompilers decompile to C and putting C++ into C is worse than manually converting it because there is too much missing information the decompiler needs and results in some really horrific code that is pretty much just assembly inside a C++ wrapper (which is as ugly as it sounds, so many void* and void**).  Now if you’re curious about IDA’s output, it’s not pretty at all.  There are “normal” functions, subroutines which use the call directive and are of the form sub_[hex line number]:.  Then there are the jump, loop and conditional branching locations marked as loc_[hex line number]:.  To say this is a mess would be understating it.  It’s more like what’s left after a bloody scene in a horror film and then recreating the scene from the aftermath.
 However there is one function that shows up 135 times in the code.
 
-
-`sub_4F9A80      proc near               ; CODE XREF: unknown_libname_1+5↑j`
-`                                        ; unknown_libname_2+5↑j ...`
-`                mov     eax, ecx ;arg_4 = return`
-`                mov     dword ptr [eax], 0FFFFFFFFh ;; [eax] = 4294967295;`
-`                retn ;return eax;`
-`sub_4F9A80      endp`
+	sub_4F9A80      proc near               ; CODE XREF: unknown_libname_1+5↑j
+	                                        ; unknown_libname_2+5↑j ...
+	                mov     eax, ecx ;arg_4 = return
+	                mov     dword ptr [eax], 0FFFFFFFFh ;; [eax] = 4294967295;
+	                retn ;return eax;
+	sub_4F9A80      endp
 
 
 Doesn’t seem like it does much, but the magical number eax is set to.  That just so happens to be 232-1 or U32MAX  but this can be shortened in C or C++ to:
 
-`unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
-	arg_4 =  ret;
-	return UINT_MAX;
-}`
+	unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
+		arg_4 =  ret;
+		return UINT_MAX;
+	}
 
 
 Here’s a little gem from the code:
