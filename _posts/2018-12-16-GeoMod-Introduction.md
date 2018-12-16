@@ -28,7 +28,7 @@ Doesn’t seem like it does much, but the magical number eax is set to.  That ju
 
 
 Here’s a little gem from the code:
-`.data:005A59EC                 db 'See John, or change MAX_FONTS in Graphics\Font.h',0Ah,0`
+	.data:005A59EC                 db 'See John, or change MAX_FONTS in Graphics\Font.h',0Ah,0
 
 Now for the fun part seeing the GeoMod Engine in action.  
 The developers included a special level called Glasshouse.  This is a sandbox level, no enemies, unlimited ammo for the rocket launcher, explosives, and assault rifle.  Though only the first two are good for really modifying geometry.  The assault rifle just breaks glass.  Speaking of which, there is a glass house in this room, but little else.  Time to play with the GeoMod engine: 
