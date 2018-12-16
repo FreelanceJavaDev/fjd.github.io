@@ -12,27 +12,28 @@ What I have found so far is that Red Faction is written in C++.  From the releas
 However there is one function that shows up 135 times in the code.
 
 
-'sub_4F9A80      proc near               ; CODE XREF: unknown_libname_1+5↑j
+`sub_4F9A80      proc near               ; CODE XREF: unknown_libname_1+5↑j
                                         ; unknown_libname_2+5↑j ...
                 mov     eax, ecx ;arg_4 = return
                 mov     dword ptr [eax], 0FFFFFFFFh ;; [eax] = 4294967295;
                 retn ;return eax;
-sub_4F9A80      endp'
+sub_4F9A80      endp`
 
 
 Doesn’t seem like it does much, but the magical number eax is set to.  That just so happens to be 232-1 or U32MAX  but this can be shortened in C or C++ to:
-'unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
+`unsigned int result_to_arg_4(int *ret,  int *arg_4) { 
 	arg_4 =  ret;
 	return UINT_MAX;
-}'
+}`
 
 
 Here’s a little gem from the code:
-'.data:005A59EC                 db "See John, or change MAX_FONTS in Graphics\Font.h",0Ah,0'
+`.data:005A59EC                 db 'See John, or change MAX_FONTS in Graphics\Font.h',0Ah,0`
 
 Now for the fun part seeing the GeoMod Engine in action.  
 The developers included a special level called Glasshouse.  This is a sandbox level, no enemies, unlimited ammo for the rocket launcher, explosives, and assault rifle.  Though only the first two are good for really modifying geometry.  The assault rifle just breaks glass.  Speaking of which, there is a glass house in this room, but little else.  Time to play with the GeoMod engine: 
 
-<iframe width="420" height="315" src="https://www.youtube.com/watch?v=1XHW4CPKL6Q">
+<iframe width="420" height="315">
+<src="https://www.youtube.com/watch?v=1XHW4CPKL6Q">
 </iframe>
 
