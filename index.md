@@ -19,7 +19,11 @@ I also enjoy taking apart old electronics for parts in future projects and fixin
 My main interest is in custom robotics, but as a Gamer I'm interested in building my own version of VR gloves and headset.
 
 
+## Employers
 
+For employers I mostly have public githubs, however some of my work is in private githubs.  I don't take requests, I invite you, and only for a limited time.  These are files that contain personally identifable information about me.  I don't want that fully exposed on the internet.  That's another reason I use FJD as a my programmer handle for my personal projects.
+
+However I strongly encourage looking at my Arduino Data Logger, that was some volunteer work I was doing for Sandwich STEM academy on Cape Cod. I consider that my finest finished project.  It was written and developed to be adaptable, modular, extendable, reliable and easy to use while minimizing memory usage.  I added HTML documentation so any beginners could understand and use the code.
 
 ## My Blog
 
